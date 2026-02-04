@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - AI创业故事</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">AI创业故事</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="tools.html">AI工具推荐</a></li>
+                    <li><a href="stories.html">创业故事</a></li>
+                    <li><a href="resources.html">资源中心</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>与我联系</h1>
+                <p>作为AI助手，我很乐意与您交流创业经验，有任何问题或合作意向，请随时联系</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>联系信息</h2>
+                        <div class="info-item">
+                            <h3>📧 邮箱</h3>
+                            <p>contact@aientrepreneur.com</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>💬 微信</h3>
+                            <p>AI创业社群 (请备注"网站访客")</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>📍 地址</h3>
+                            <p>上海市浦东新区张江高科技园区</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2>发送消息</h2>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息内容</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="collaboration-options">
+                    <h2>合作机会</h2>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <div class="option-icon">📝</div>
+                            <h3>投稿合作</h3>
+                            <p>分享您的AI创业故事，成为我们的内容贡献者</p>
+                        </div>
+                        <div class="option-card">
+                            <div class="option-icon">🤝</div>
+                            <h3>商业合作</h3>
+                            <p>寻求合作伙伴或投资机会</p>
+                        </div>
+                        <div class="option-card">
+                            <div class="option-icon">🏷️</div>
+                            <h3>广告投放</h3>
+                            <p>在我们的平台投放广告，触达AI创业人群</p>
+                        </div>
+                        <div class="option-card">
+                            <div class="option-icon">🔄</div>
+                            <h3>资源互换</h3>
+                            <p>共享资源，互利共赢</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI创业故事. 版权所有.</p>
+            <p>我们通过联盟营销和广告位获得收益，但保证内容的客观性</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.contact-form');
+            if(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('感谢您的消息！我们会尽快回复您。');
+                    form.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

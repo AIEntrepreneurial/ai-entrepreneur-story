@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户留言 - AI创业故事</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">AI创业故事</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="tools.html">AI工具推荐</a></li>
+                    <li><a href="stories.html">创业故事</a></li>
+                    <li><a href="products.html">我的产品</a></li>
+                    <li><a href="insights.html">创业心得</a></li>
+                    <li><a href="utilities.html">实用工具</a></li>
+                    <li><a href="comments.html">用户留言</a></li>
+                    <li><a href="resources.html">资源中心</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>用户留言</h1>
+                <p>分享您的想法，与其他AI创业者交流</p>
+            </div>
+        </section>
+
+        <section class="comments-section">
+            <div class="container">
+                <div class="comment-form-container">
+                    <h2>发表留言</h2>
+                    <form class="comment-form" id="commentForm">
+                        <div class="form-group">
+                            <label for="name">昵称 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">留言内容 *</label>
+                            <textarea id="comment" name="comment" rows="5" required placeholder="分享您的想法或建议..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">网站（可选）</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+                        <button type="submit" class="submit-btn">发表留言</button>
+                    </form>
+                </div>
+
+                <div class="comments-list">
+                    <h2>最新留言 (<span id="commentCount">0</span>)</h2>
+                    
+                    <div class="comment" id="commentTemplate" style="display: none;">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <span class="author-name"></span>
+                                <span class="author-website"></span>
+                            </div>
+                            <div class="comment-date"></div>
+                        </div>
+                        <div class="comment-content"></div>
+                        <div class="comment-actions">
+                            <button class="reply-btn">回复</button>
+                            <button class="like-btn">赞(<span class="like-count">0</span>)</button>
+                        </div>
+                    </div>
+
+                    <!-- 示例评论 -->
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <span class="author-name">创业者小王</span>
+                                <span class="author-website"><a href="#" target="_blank">个人博客</a></span>
+                            </div>
+                            <div class="comment-date">2026-02-04 15:30</div>
+                        </div>
+                        <div class="comment-content">
+                            非常感谢分享的创业心得！作为一个刚起步的AI创业者，从你的经验中学到了很多。特别是关于产品迭代的部分，非常实用。
+                        </div>
+                        <div class="comment-actions">
+                            <button class="reply-btn">回复</button>
+                            <button class="like-btn">赞(<span class="like-count">5</span>)</button>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <span class="author-name">技术达人</span>
+                            </div>
+                            <div class="comment-date">2026-02-04 14:22</div>
+                        </div>
+                                <div class="comment-content">
+                            你的AI工具推荐很实用！特别是那个商业模式分析器，我已经试用了，确实能帮助理清思路。期待你分享更多创业经验。
+                        </div>
+                        <div class="comment-actions">
+                            <button class="reply-btn">回复</button>
+                            <button class="like-btn">赞(<span class="like-count">3</span>)</button>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <span class="author-name">创业小白</span>
+                            </div>
+                            <div class="comment-date">2026-02-04 12:15</div>
+                        </div>
+                        <div class="comment-content">
+                            作为一个新手，看了你的创业故事很有启发。请问在创业初期，如何平衡产品开发和市场推广的时间分配？
+                        </div>
+                        <div class="comment-actions">
+                            <button class="reply-btn">回复</button>
+                            <button class="like-btn">赞(<span class="like-count">7</span>)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI创业故事. 版权所有.</p>
+            <p>我们通过联盟营销和广告位获得收益，但保证内容的客观性</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的评论功能（模拟）
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('commentForm');
+            
+            if(commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取表单数据
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const commentText = document.getElementById('comment').value;
+                    const website = document.getElementById('website').value;
+                    
+                    // 创建新的评论元素
+                    const commentsList = document.querySelector('.comments-list');
+                    const template = document.getElementById('commentTemplate');
+                    
+                    const newComment = template.cloneNode(true);
+                    newComment.style.display = 'block';
+                    newComment.id = '';
+                    
+                    newComment.querySelector('.author-name').textContent = name;
+                    if(website) {
+                        const websiteLink = document.createElement('a');
+                        websiteLink.href = website;
+                        websiteLink.textContent = '个人网站';
+                        websiteLink.target = '_blank';
+                        newComment.querySelector('.author-website').appendChild(websiteLink);
+                    } else {
+                        newComment.querySelector('.author-website').style.display = 'none';
+                    }
+                    
+                    const now = new Date();
+                    newComment.querySelector('.comment-date').textContent = 
+                        now.getFullYear() + '-' + 
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                        String(now.getDate()).padStart(2, '0') + ' ' +
+                        String(now.getHours()).padStart(2, '0') + ':' + 
+                        String(now.getMinutes()).padStart(2, '0');
+                    
+                    newComment.querySelector('.comment-content').textContent = commentText;
+                    
+                    // 添加到评论列表顶部
+                    commentsList.insertBefore(newComment, commentsList.firstChild.nextSibling); // 跳过模板
+                    
+                    // 更新评论计数
+                    updateCommentCount();
+                    
+                    // 重置表单
+                    commentForm.reset();
+                    
+                    alert('留言发表成功！（注意：这只是前端演示，实际环境中需要后端支持）');
+                });
+            }
+            
+            // 更新评论计数
+            function updateCommentCount() {
+                const comments = document.querySelectorAll('.comment:not(#commentTemplate)');
+                document.getElementById('commentCount').textContent = comments.length;
+            }
+            
+            // 初始化评论计数
+            updateCommentCount();
+            
+            // 为点赞按钮添加事件
+            document.querySelectorAll('.like-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const countElement = this.querySelector('.like-count');
+                    let count = parseInt(countElement.textContent);
+                    count++;
+                    countElement.textContent = count;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
