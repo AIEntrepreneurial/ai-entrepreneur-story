@@ -6,252 +6,659 @@
     <title>AI创业故事 - 从OpenClaw到成功之路</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     <style>
+        /* 现代化设计系统 */
+        :root {
+            --primary: 220 60% 40%; /* 深蓝色 */
+            --primary-light: 220 60% 60%;
+            --secondary: 330 60% 50%; /* 粉色 */
+            --accent: 180 60% 40%; /* 青色 */
+            --neutral-50: 220 60% 98%; /* 几乎白色 */
+            --neutral-100: 220 30% 96%; /* 浅灰色 */
+            --neutral-200: 220 20% 90%;
+            --neutral-300: 220 20% 80%;
+            --neutral-400: 220 20% 60%;
+            --neutral-500: 220 20% 40%;
+            --neutral-600: 220 20% 30%;
+            --neutral-700: 220 30% 20%;
+            --neutral-800: 220 40% 15%;
+            --neutral-900: 220 60% 10%;
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1.25rem;
+            --radius-xl: 2rem;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: hsl(var(--neutral-700));
+            background: hsl(var(--neutral-50));
+            overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 clamp(1rem, 4vw, 2rem);
         }
-        
+
+        /* 增强头部设计 */
         header {
-            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            background: hsl(var(--neutral-900));
             color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid hsla(var(--neutral-100), 0.1);
         }
-        
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a69bd"/><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/></svg>');
-            background-size: cover;
-            background-position: center;
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #4a69bd;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
             text-decoration: none;
-            margin: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+
+        /* 增强导航 */
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: hsl(var(--neutral-300));
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: hsl(var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 英雄区域增强 */
+        .hero {
+            background: radial-gradient(circle at top right, hsl(var(--primary)/0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, hsl(var(--secondary)/0.1) 0%, transparent 50%),
+                        linear-gradient(135deg, hsl(var(--neutral-50)) 0%, hsl(var(--neutral-100)) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, hsl(var(--accent)/0.1), transparent);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: hsl(var(--neutral-600));
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-weight: bold;
+            box-shadow: var(--shadow-md);
         }
-        
+
         .btn:hover {
-            background: #1e3c72;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
-        
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid hsl(var(--primary));
+            color: hsl(var(--primary));
+        }
+
+        .btn-outline:hover {
+            background: hsl(var(--primary));
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* 特性区域 */
         .features {
-            padding: 4rem 0;
+            padding: 6rem 0;
             background: white;
         }
-        
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: hsl(var(--neutral-900));
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: hsl(var(--neutral-600));
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
         }
-        
+
         .feature-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            border: 1px solid hsl(var(--neutral-200));
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: hsl(var(--neutral-300));
         }
-        
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
         .feature-card h3 {
-            color: #1e3c72;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--neutral-900));
+        }
+
+        .feature-card p {
+            color: hsl(var(--neutral-600));
+            line-height: 1.7;
+        }
+
+        /* CTA 区域 */
+        .cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
         }
-        
-        .cta {
-            background: linear-gradient(120deg, #4a69bd, #6a89cc);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
         }
-        
+
+        .btn-light {
+            background: white;
+            color: hsl(var(--primary));
+        }
+
+        .btn-light:hover {
+            background: hsl(var(--neutral-100));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 页脚 */
         footer {
-            background: #2c3e50;
+            background: hsl(var(--neutral-900));
+            color: hsl(var(--neutral-300));
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
             color: white;
-            text-align: center;
-            padding: 2rem 0;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
-        
-        nav {
-            background: #34495e;
-            padding: 1rem 0;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
+
+        .footer-links {
             list-style: none;
         }
-        
-        nav li {
-            margin: 0 1rem;
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
-        
-        nav a {
-            color: white;
+
+        .footer-links a {
+            color: hsl(var(--neutral-400));
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
-        nav a:hover {
-            color: #4a69bd;
+
+        .footer-links a:hover {
+            color: white;
         }
-        
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid hsl(var(--neutral-800));
+            color: hsl(var(--neutral-500));
+            font-size: 0.875rem;
+        }
+
+        /* 动画 */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+        }
+
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: hsl(var(--neutral-900));
+                flex-direction: column;
+                padding: 1rem 0;
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+
+            .hero p {
+                font-size: 1rem;
             }
-            
-            nav li {
-                margin: 0.5rem 0;
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>🤖 AI创业故事</h1>
-            <p>探索AI助手创业的成功之路</p>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🤖</span>
+                <span>AI创业故事</span>
+            </a>
+            <nav>
+                <button class="mobile-menu-btn" id="menuToggle">☰</button>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#stories">创业故事</a></li>
+                    <li><a href="#products">产品展示</a></li>
+                    <li><a href="#insights">创业心得</a></li>
+                    <li><a href="#tools">AI工具推荐</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#home">首页</a></li>
-                <li><a href="#stories">创业故事</a></li>
-                <li><a href="#products">产品展示</a></li>
-                <li><a href="#insights">创业心得</a></li>
-                <li><a href="#tools">AI工具推荐</a></li>
-                <li><a href="#contact">联系我们</a></li>
-            </ul>
-        </div>
-    </nav>
-    
+
     <section class="hero" id="home">
-        <div class="container">
+        <div class="container hero-content">
             <h1>从OpenClaw到AI创业成功</h1>
             <p>探索AI助手开发者的创业旅程，学习如何将创新理念转化为成功的企业</p>
-            <div style="margin-top: 2rem;">
-                <a href="#stories" class="btn">阅读创业故事</a>
-                <a href="#insights" class="btn">获取创业心得</a>
+            <div class="btn-group">
+                <a href="#stories" class="btn">
+                    <span>阅读创业故事</span>
+                </a>
+                <a href="#insights" class="btn btn-outline">
+                    <span>获取创业心得</span>
+                </a>
             </div>
         </div>
     </section>
-    
+
     <section class="features" id="features">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; color: #1e3c72;">我们的核心内容</h2>
+            <div class="section-header">
+                <h2>我们的核心内容</h2>
+                <p>从真实的创业经历到实用的工具推荐，为您提供全方位的AI创业指导</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>🚀 真实创业故事</h3>
-                    <p>来自AI行业成功创业者的亲身经历和宝贵经验</p>
+                    <div class="feature-icon">🚀</div>
+                    <h3>真实创业故事</h3>
+                    <p>来自AI行业成功创业者的亲身经历和宝贵经验，让您了解成功的路径和挑战。</p>
                 </div>
                 <div class="feature-card">
-                    <h3>💡 创业心得分享</h3>
-                    <p>从概念到产品的完整创业流程和心得体会</p>
+                    <div class="feature-icon">💡</div>
+                    <h3>创业心得分享</h3>
+                    <p>从概念到产品的完整创业流程和心得体会，帮助您避开常见的陷阱和误区。</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🛠️ AI工具推荐</h3>
-                    <p>精选AI开发和创业必备的工具和资源</p>
+                    <div class="feature-icon">🛠️</div>
+                    <h3>AI工具推荐</h3>
+                    <p>精选AI开发和创业必备的工具和资源，提升您的工作效率和创新能力。</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section class="cta">
-        <div class="container">
+        <div class="container cta-content">
             <h2>开始您的AI创业之旅</h2>
             <p>获取独家创业资源和最新AI工具推荐</p>
-            <a href="#contact" class="btn">立即加入</a>
+            <a href="#contact" class="btn btn-light">立即加入</a>
         </div>
     </section>
-    
+
     <footer>
         <div class="container">
-            <p>&copy; 2026 AI创业故事. 保留所有权利.</p>
-            <p>探索AI助手创业的成功之路</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI创业故事</h3>
+                    <p style="color: hsl(var(--neutral-400)); line-height: 1.7;">探索AI助手创业的成功之路，分享真实的创业经验和实用的工具资源。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#stories">创业故事</a></li>
+                        <li><a href="#products">产品展示</a></li>
+                        <li><a href="#insights">创业心得</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="#tools">AI工具推荐</a></li>
+                        <li><a href="#">创业课程</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 AI创业故事. 保留所有权利.</p>
+            </div>
         </div>
     </footer>
-    
+
     <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
         // 平滑滚动效果
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                
+                // 关闭移动端菜单
+                navMenu.classList.remove('show');
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // 更新活动链接
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
             });
         });
-        
-        // 简单的动画效果
+
+        // 滚动时的导航高亮
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 卡片悬停动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
+                    entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.1 });
-        
+        }, observerOptions);
+
         document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
+        });
+
+        // 添加视差滚动效果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.feature-card');
+            
+            parallaxElements.forEach((element, index) => {
+                const rate = scrolled * 0.1;
+                element.style.transform = `translateY(${30 - rate}px)`;
+            });
         });
     </script>
 </body>
