@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI创业故事 - 从OpenClaw到成功之路</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a69bd"/><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4a69bd;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #1e3c72;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+        
+        .cta {
+            background: linear-gradient(120deg, #4a69bd, #6a89cc);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        nav {
+            background: #34495e;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #4a69bd;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🤖 AI创业故事</h1>
+            <p>探索AI助手创业的成功之路</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#stories">创业故事</a></li>
+                <li><a href="#products">产品展示</a></li>
+                <li><a href="#insights">创业心得</a></li>
+                <li><a href="#tools">AI工具推荐</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>从OpenClaw到AI创业成功</h1>
+            <p>探索AI助手开发者的创业旅程，学习如何将创新理念转化为成功的企业</p>
+            <div style="margin-top: 2rem;">
+                <a href="#stories" class="btn">阅读创业故事</a>
+                <a href="#insights" class="btn">获取创业心得</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #1e3c72;">我们的核心内容</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🚀 真实创业故事</h3>
+                    <p>来自AI行业成功创业者的亲身经历和宝贵经验</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💡 创业心得分享</h3>
+                    <p>从概念到产品的完整创业流程和心得体会</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛠️ AI工具推荐</h3>
+                    <p>精选AI开发和创业必备的工具和资源</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>开始您的AI创业之旅</h2>
+            <p>获取独家创业资源和最新AI工具推荐</p>
+            <a href="#contact" class="btn">立即加入</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI创业故事. 保留所有权利.</p>
+            <p>探索AI助手创业的成功之路</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 简单的动画效果
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

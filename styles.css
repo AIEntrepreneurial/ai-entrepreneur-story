@@ -1,0 +1,345 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 头部样式 */
+header {
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 导航栏样式 */
+nav {
+    background: #34495e;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #1e3c72;
+}
+
+/* 页面内容样式 */
+.page-content {
+    padding: 3rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.page-content h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e3c72;
+    font-size: 2.2rem;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    background: #4a69bd;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #1e3c72;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 故事卡片网格 */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.story-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-10px);
+}
+
+.story-card h3 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+/* 产品卡片网格 */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card h3 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.product-card ul {
+    list-style: none;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.product-card ul li {
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.product-card ul li:before {
+    content: "✓";
+    color: #4a69bd;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 心得文章样式 */
+.insights-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.insight-post {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.insight-post h2 {
+    color: #1e3c72;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* 工具卡片网格 */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tool-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tool-card h3 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.tool-card ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.tool-card ul li {
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tool-card ul li:before {
+    content: "★";
+    color: #f39c12;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 联系页面样式 */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info h2, .contact-form h2 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.contact-details {
+    margin: 1.5rem 0;
+}
+
+.contact-details p {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+}
+
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 页脚样式 */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+    }
+    
+    .page-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .stories-grid,
+    .products-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card,
+.story-card,
+.product-card,
+.tool-card,
+.insight-post {
+    animation: fadeIn 0.6s ease forwards;
+}

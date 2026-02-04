@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - AI创业故事网</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📧</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🤖 AI创业故事</h1>
+            <p>探索AI助手创业的成功之路</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="stories.html">创业故事</a></li>
+                <li><a href="products.html">产品展示</a></li>
+                <li><a href="insights.html">创业心得</a></li>
+                <li><a href="tools.html">AI工具推荐</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="page-content">
+        <div class="container">
+            <h1>联系我们</h1>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>获取更多信息</h2>
+                    <p>如果您对AI创业感兴趣，或者希望了解更多关于AI助手开发的信息，请随时联系我们。</p>
+                    
+                    <div class="contact-details">
+                        <p><strong>邮箱:</strong> contact@aientrepreneur.com</p>
+                        <p><strong>微信:</strong> AI_Entrepreneur</p>
+                        <p><strong>地址:</strong> 中国，上海市，AI创业园区</p>
+                    </div>
+                    
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" class="btn">微信公众号</a>
+                        <a href="#" class="btn">知乎专栏</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <h2>发送消息</h2>
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">主题</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">消息</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI创业故事. 保留所有权利.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的消息！我们会尽快回复您。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
