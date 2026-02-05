@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://yunchengyinghua.github.io/ai-entrepreneur-stories/sitemap.xml
+Sitemap: https://aientrepreneurial.github.io/ai-entrepreneur-story/sitemap.xml
