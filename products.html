@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品展示 - AI创业故事网</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <style>
+        /* 现代化设计系统 */
+        :root {
+            --primary: 220 60% 40%; /* 深蓝色 */
+            --primary-light: 220 60% 60%;
+            --secondary: 330 60% 50%; /* 粉色 */
+            --accent: 180 60% 40%; /* 青色 */
+            --neutral-50: 220 60% 98%; /* 几乎白色 */
+            --neutral-100: 220 30% 96%; /* 浅灰色 */
+            --neutral-200: 220 20% 90%;
+            --neutral-300: 220 20% 80%;
+            --neutral-400: 220 20% 60%;
+            --neutral-500: 220 20% 40%;
+            --neutral-600: 220 20% 30%;
+            --neutral-700: 220 30% 20%;
+            --neutral-800: 220 40% 15%;
+            --neutral-900: 220 60% 10%;
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1.25rem;
+            --radius-xl: 2rem;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--neutral-700));
+            background: hsl(var(--neutral-50));
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        /* 增强头部设计 */
+        header {
+            background: hsl(var(--neutral-900));
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid hsla(var(--neutral-100), 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+
+        /* 增强导航 */
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: hsl(var(--neutral-300));
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: hsl(var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 页面内容区域 */
+        .page-content {
+            padding: 6rem 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: hsl(var(--neutral-900));
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: hsl(var(--neutral-600));
+        }
+
+        /* 产品网格 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            border: 1px solid hsl(var(--neutral-200));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: hsl(var(--neutral-300));
+        }
+
+        .product-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--neutral-900));
+        }
+
+        .product-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .product-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: hsl(var(--neutral-600));
+        }
+
+        .product-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: hsl(var(--accent));
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* 页脚 */
+        footer {
+            background: hsl(var(--neutral-900));
+            color: hsl(var(--neutral-300));
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: hsl(var(--neutral-400));
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid hsl(var(--neutral-800));
+            color: hsl(var(--neutral-500));
+            font-size: 0.875rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: hsl(var(--neutral-900));
+                flex-direction: column;
+                padding: 1rem 0;
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .page-content {
+                padding: 4rem 0;
+            }
+
+            .section-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🤖</span>
+                <span>AI创业故事</span>
+            </a>
+            <nav>
+                <button class="mobile-menu-btn" id="menuToggle">☰</button>
+                <ul id="navMenu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="stories.html">创业故事</a></li>
+                    <li><a href="products.html" class="active">产品展示</a></li>
+                    <li><a href="insights.html">创业心得</a></li>
+                    <li><a href="tools.html">AI工具推荐</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="section-header">
+                <h1>我们的产品与服务</h1>
+                <p>探索我们精心打造的AI产品和服务，助力您的创业之旅</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🤖</div>
+                    <h3>OpenClaw AI助手平台</h3>
+                    <p>一款功能强大的AI助手开发平台，支持多渠道集成和丰富的插件系统。</p>
+                    <ul>
+                        <li>多渠道消息集成</li>
+                        <li>丰富的插件生态系统</li>
+                        <li>灵活的工作流配置</li>
+                        <li>企业级安全保障</li>
+                    </ul>
+                    <a href="#" class="btn">
+                        <span>了解更多</span>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🧠</div>
+                    <h3>AI创业课程</h3>
+                    <p>系统化的AI创业培训课程，涵盖从技术开发到商业运营的全方位内容。</p>
+                    <ul>
+                        <li>实战案例分析</li>
+                        <li>导师一对一指导</li>
+                        <li>创业资源包</li>
+                        <li>行业专家讲座</li>
+                    </ul>
+                    <a href="#" class="btn">
+                        <span>了解更多</span>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💼</div>
+                    <h3>AI商业咨询</h3>
+                    <p>专业的AI商业咨询服务，帮助企业制定AI战略和落地实施计划。</p>
+                    <ul>
+                        <li>AI战略规划</li>
+                        <li>技术可行性分析</li>
+                        <li>商业模式设计</li>
+                        <li>市场进入策略</li>
+                    </ul>
+                    <a href="#" class="btn">
+                        <span>了解更多</span>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🌐</div>
+                    <h3>AI模型托管服务</h3>
+                    <p>高性能的AI模型托管平台，支持快速部署和弹性扩展。</p>
+                    <ul>
+                        <li>一键部署</li>
+                        <li>自动扩缩容</li>
+                        <li>实时监控</li>
+                        <li>成本优化</li>
+                    </ul>
+                    <a href="#" class="btn">
+                        <span>了解更多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI创业故事</h3>
+                    <p style="color: hsl(var(--neutral-400)); line-height: 1.7;">探索AI助手创业的成功之路，分享真实的创业经验和实用的工具资源。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="stories.html">创业故事</a></li>
+                        <li><a href="products.html">产品展示</a></li>
+                        <li><a href="insights.html">创业心得</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="tools.html">AI工具推荐</a></li>
+                        <li><a href="#">创业课程</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 AI创业故事. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                navMenu.classList.remove('show');
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 卡片悬停动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
