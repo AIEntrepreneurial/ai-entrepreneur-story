@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI创想工场 - 探索人工智能创业者的创新之路</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 极简基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0f1f 0%, #1a2332 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(15, 26, 49, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(74, 108, 247, 0.2);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: #4a6cf7;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #6d88f8;
+            background: rgba(74, 108, 247, 0.1);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 26, 49, 0.9) 0%, rgba(26, 58, 95, 0.9) 100%);
+            position: relative;
+            margin-bottom: 80px;
+            border-bottom: 1px solid rgba(74, 108, 247, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4a6cf7 0%, #6d88f8 100%);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid #4a6cf7;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(74, 108, 247, 0.3);
+        }
+
+        /* 区域标题 */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 内容区域 */
+        #home, #insights, #tools-integration, #products, #dev-tools, #contact {
+            padding: 80px 0;
+            min-height: 50vh;
+        }
+
+        /* 行业洞察 - 左右布局 */
+        .insights-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .news-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        /* 滚动条样式 */
+        .news-column::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .news-column::-webkit-scrollbar-track {
+            background: rgba(15, 26, 49, 0.3);
+            border-radius: 4px;
+        }
+
+        .news-column::-webkit-scrollbar-thumb {
+            background: #4a6cf7;
+            border-radius: 4px;
+        }
+
+        .news-column::-webkit-scrollbar-thumb:hover {
+            background: #6d88f8;
+        }
+
+        .image-column {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+            background: linear-gradient(135deg, #0f2a4d 0%, #1a3a5f 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 图片轮播样式 */
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(15, 26, 49, 0.8);
+            height: 600px;
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 20;
+        }
+
+        .carousel-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-btn:hover {
+            background: #4a6cf7;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #6d88f8;
+            transform: scale(1.2);
+        }
+
+        .progress-bar-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 30;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #4a6cf7;
+            transition: width 4s linear;
+        }
+
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .insight-icon {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .insight-title {
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+
+        .insight-subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .news-item {
+            background: rgba(15, 26, 49, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 108, 247, 0.2);
+        }
+
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(74, 108, 247, 0.5);
+        }
+
+        .news-title {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .news-summary {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .news-link {
+            color: #6d88f8;
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .news-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* AI工具集成平台 - 8个工具每行 */
+        .tools-grid-large {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .tool-card-large {
+            background: rgba(15, 26, 49, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 108, 247, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 180px;
+            height: auto;
+        }
+
+        .tool-card-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(74, 108, 247, 0.3);
+        }
+
+        .tool-icon-large {
+            font-size: 1.8rem;
+            color: #00d9a2;
+            margin-bottom: 12px;
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 500;
+            word-break: break-word;
+            overflow: visible;
+            line-height: 1.3;
+            text-align: center;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            min-height: 36px;
+            overflow: visible;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a6cf7 0%, #6d88f8 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            margin-top: 5px;
+        }
+
+        .tool-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 15px rgba(74, 108, 247, 0.4);
+        }
+
+        /* AI产品展示 - 4个产品每行 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: rgba(15, 26, 49, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(74, 108, 247, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 180px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(74, 108, 247, 0.5);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(135deg, #4a6cf7 0%, #6d88f8 100%);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            padding: 12px;
+        }
+
+        .product-icon {
+            font-size: 1.4rem;
+            color: white;
+            margin-top: 15px; /* 减少顶部间距 */
+        }
+
+        .product-header {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: 12px;
+            margin-top: 0; /* 移除顶部间距 */
+        }
+
+        .product-title {
+            font-size: 1rem;
+            color: white !important;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .product-stats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .stat {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .stat-value {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white !important;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: white !important;
+            display: block;
+        }
+
+        .product-content {
+            height: 50%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-desc {
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            flex: 1;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /* 开发工具 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .tool-card {
+            background: rgba(15, 26, 49, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 108, 247, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 180px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(74, 108, 247, 0.3);
+        }
+
+        .tool-icon {
+            font-size: 1.8rem;
+            color: #00d9a2;
+            margin-bottom: 12px;
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .tool-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 联系我们 */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #4a6cf7;
+            margin-top: 5px;
+        }
+
+        .contact-item h4 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(74, 108, 247, 0.2);
+            border-radius: 8px;
+            background: rgba(15, 26, 49, 0.5);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #4a6cf7;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #0a0f1f;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+            position: relative;
+            border-top: 1px solid rgba(74, 108, 247, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #6d88f8;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(74, 108, 247, 0.1);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1400px) {
+            .tools-grid-large, .tools-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .tools-grid-large, .tools-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .insights-layout {
+                flex-direction: column;
+            }
+            
+            .news-column {
+                flex: 1;
+                max-height: none;
+                margin-bottom: 30px;
+            }
+            
+            .image-column {
+                flex: 1;
+                min-height: 400px;
+            }
+            
+            .tools-grid-large, .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .tools-grid-large, .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0a0f1f;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h2>AI创想工场</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="#insights" class="nav-link"><i class="fas fa-lightbulb"></i> 行业洞察</a></li>
+                <li><a href="#tools-integration" class="nav-link"><i class="fas fa-plug"></i> AI工具</a></li>
+                <li><a href="#products" class="nav-link"><i class="fas fa-robot"></i> AI产品</a></li>
+                <li><a href="#dev-tools" class="nav-link"><i class="fas fa-wrench"></i> 开发工具</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> 联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" style="display:inline-block;background:linear-gradient(135deg,#4a6cf7 0%,#6d88f8 100%);color:white;padding:8px 20px;border-radius:50px;font-size:0.9rem;font-weight:bold;margin-bottom:20px;">
+                    AI创新前沿
+                </div>
+                <h1>探索AI创业者的创新之路</h1>
+                <p>深入了解人工智能领域创业者的成功故事、挑战与机遇，发现AI技术如何改变世界</p>
+                <div class="btn-group">
+                    <a href="#insights" class="btn btn-primary">开始探索</a>
+                    <a href="#products" class="btn btn-outline">AI产品</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行业洞察 -->
+    <section id="insights" class="insights-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI行业深度洞察</h2>
+                <p>来自行业专家和创业者的深度分析，揭示AI技术发展的趋势和商业机会</p>
+            </div>
+            <div class="insights-layout">
+                <div class="news-column">
+                    <div class="news-item">
+                        <h3 class="news-title">OpenAI发布GPT-5，AI能力再创新高</h3>
+                        <p class="news-date">2024年12月15日</p>
+                        <p class="news-summary">OpenAI正式发布新一代大语言模型GPT-5，在多模态理解和推理能力方面实现重大突破...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">微软宣布投资1000亿美元建设AI超级计算中心</h3>
+                        <p class="news-date">2024年11月28日</p>
+                        <p class="news-summary">微软与合作伙伴共同宣布投资计划，旨在打造全球最大的AI专用基础设施...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">欧盟AI法案正式生效，科技公司面临新规挑战</h3>
+                        <p class="news-date">2024年8月1日</p>
+                        <p class="news-summary">备受关注的欧盟人工智能法案正式生效，对AI系统的开发和部署提出了严格要求...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI初创公司融资热潮：本月总额超过50亿美元</h3>
+                        <p class="news-date">2024年10月22日</p>
+                        <p class="news-summary">本月份AI初创公司的融资活动异常活跃，多个项目获得亿元以上投资...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">谷歌推出Gemini Nano移动端AI模型</h3>
+                        <p class="news-date">2024年12月10日</p>
+                        <p class="news-summary">谷歌发布轻量级AI模型Gemini Nano，可在手机端直接运行AI功能...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">亚马逊AWS推出定制AI芯片Trainium2</h3>
+                        <p class="news-date">2024年11月30日</p>
+                        <p class="news-summary">亚马逊新一代AI训练芯片性能提升40%，专为大规模模型训练优化...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">Meta开源Llama 3.1模型套件</h3>
+                        <p class="news-date">2024年7月22日</p>
+                        <p class="news-summary">Meta发布开源大语言模型Llama 3.1，包含405B参数版本，推动AI开放研究...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">特斯拉Optimus机器人进入工厂测试</h3>
+                        <p class="news-date">2024年9月15日</p>
+                        <p class="news-summary">特斯拉人形机器人开始在工厂执行简单任务，标志着通用机器人商业化迈进...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">英伟达GPU供不应求，产能扩充计划启动</h3>
+                        <p class="news-date">2024年10月5日</p>
+                        <p class="news-summary">面对激增的AI计算需求，英伟达宣布加速生产H100和下一代B100芯片...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">中国发布《人工智能治理原则》白皮书</h3>
+                        <p class="news-date">2024年6月18日</p>
+                        <p class="news-summary">中国政府提出AI发展与治理框架，强调安全可控、公平包容的发展理念...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI医疗影像诊断准确率达95%</h3>
+                        <p class="news-date">2024年11月12日</p>
+                        <p class="news-summary">多家医疗机构报告显示，AI辅助诊断系统在某些疾病检测上超越人类专家...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">自动驾驶汽车首次获准无安全员上路</h3>
+                        <p class="news-date">2024年8月25日</p>
+                        <p class="news-summary">美国监管部门批准首个无人驾驶出租车服务，无需人类驾驶员值守...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI绘画竞赛：Midjourney与DALL-E对决</h3>
+                        <p class="news-date">2024年9月30日</p>
+                        <p class="news-summary">最新一轮AI图像生成竞赛结果显示，各平台在不同领域各有优势...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">量子计算与AI结合取得新突破</h3>
+                        <p class="news-date">2024年12月5日</p>
+                        <p class="news-summary">科研团队成功将量子算法应用于神经网络训练，大幅提升计算效率...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI教师助手进入全国千所学校试点</h3>
+                        <p class="news-date">2024年10月18日</p>
+                        <p class="news-summary">智能教育助手帮助教师备课、批改作业，个性化辅导学生学习...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI预测气候变化模型精度提升30%</h3>
+                        <p class="news-date">2024年11月8日</p>
+                        <p class="news-summary">新AI模型能更准确预测极端天气事件，为防灾减灾提供重要参考...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI音乐创作平台掀起版权争议</h3>
+                        <p class="news-date">2024年7月14日</p>
+                        <p class="news-summary">AI生成音乐快速流行，引发关于原创性和版权归属的法律讨论...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">机器人服务员入驻连锁餐厅</h3>
+                        <p class="news-date">2024年9月20日</p>
+                        <p class="news-summary">智能服务机器人开始在全国数百家餐厅上岗，提升服务效率...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI语音识别方言能力大幅改善</h3>
+                        <p class="news-date">2024年10月30日</p>
+                        <p class="news-summary">新技术使AI系统能识别和翻译上百种地方方言，促进交流便利...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">AI辅助药物研发周期缩短至6个月</h3>
+                        <p class="news-date">2024年12月1日</p>
+                        <p class="news-summary">传统新药研发需10-15年，AI技术有望将关键阶段缩短至半年...</p>
+                        <a href="#" class="news-link">查看详情 ></a>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-carousel">
+                        <div class="carousel-slides">
+                            <div class="slide active">
+                                <div class="slide-content">
+                                    <i class="fas fa-brain insight-icon"></i>
+                                    <h3 class="insight-title">AI趋势分析</h3>
+                                    <p class="insight-subtitle">深度解读AI技术发展方向</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-content">
+                                    <i class="fas fa-chart-line insight-icon"></i>
+                                    <h3 class="insight-title">市场洞察</h3>
+                                    <p class="insight-subtitle">AI行业市场动态分析</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-content">
+                                    <i class="fas fa-lightbulb insight-icon"></i>
+                                    <h3 class="insight-title">创新技术</h3>
+                                    <p class="insight-subtitle">最新AI技术突破解读</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-content">
+                                    <i class="fas fa-rocket insight-icon"></i>
+                                    <h3 class="insight-title">创业机会</h3>
+                                    <p class="insight-subtitle">AI创业领域机遇分析</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                            <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+                        </div>
+                        <div class="carousel-indicators">
+                            <div class="indicator active" onclick="currentSlide(1)"></div>
+                            <div class="indicator" onclick="currentSlide(2)"></div>
+                            <div class="indicator" onclick="currentSlide(3)"></div>
+                            <div class="indicator" onclick="currentSlide(4)"></div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI工具集成平台 -->
+    <section id="tools-integration" class="tools-integration">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI工具集成平台</h2>
+                <p>连接各种AI工具平台，提升工作效率和创新能力</p>
+            </div>
+            <div class="tools-grid-large">
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="tool-name">OpenAI API</h3>
+                    <p class="tool-desc">连接ChatGPT和GPT-4等先进语言模型</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3 class="tool-name">Google AI Studio</h3>
+                    <p class="tool-desc">使用PaLM 2和其他Google AI模型</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="tool-name">NVIDIA AI Enterprise</h3>
+                    <p class="tool-desc">企业级AI开发和部署平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3 class="tool-name">Azure OpenAI</h3>
+                    <p class="tool-desc">微软云平台的AI服务</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fab fa-amazon"></i>
+                    </div>
+                    <h3 class="tool-name">AWS Bedrock</h3>
+                    <p class="tool-desc">亚马逊的基础模型服务平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3 class="tool-name">Amazon SageMaker</h3>
+                    <p class="tool-desc">端到端的机器学习平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="tool-name">Hugging Face</h3>
+                    <p class="tool-desc">开源模型和数据集共享平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="tool-name">Midjourney API</h3>
+                    <p class="tool-desc">高质量AI图像生成服务</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="tool-name">DALL-E 3</h3>
+                    <p class="tool-desc">OpenAI的图像生成模型</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3 class="tool-name">AssemblyAI</h3>
+                    <p class="tool-desc">语音识别和音频分析API</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="tool-name">Runway ML</h3>
+                    <p class="tool-desc">创意AI视频和图像编辑工具</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="tool-name">AIVA</h3>
+                    <p class="tool-desc">AI作曲和音乐创作平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="tool-name">TensorFlow</h3>
+                    <p class="tool-desc">开源机器学习框架</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="tool-name">PyTorch</h3>
+                    <p class="tool-desc">Facebook的深度学习框架</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="tool-name">DeepL API</h3>
+                    <p class="tool-desc">高质量神经网络翻译服务</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="tool-name">GitHub Copilot</h3>
+                    <p class="tool-desc">AI编程助手</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="tool-name">Notion AI</h3>
+                    <p class="tool-desc">智能笔记和协作平台</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="tool-name">Stability AI</h3>
+                    <p class="tool-desc">Stable Diffusion和其他生成模型</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="tool-name">Calendly AI</h3>
+                    <p class="tool-desc">智能日程安排助手</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+                <div class="tool-card-large">
+                    <div class="tool-icon-large">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="tool-name">Grammarly Business</h3>
+                    <p class="tool-desc">AI写作助手和语法检查</p>
+                    <a href="#" class="tool-link">连接</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI产品展示 -->
+    <section id="products" class="product-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI驱动的创新产品</h2>
+                <p>探索由创业者开发的最前沿AI产品，了解它们如何改变我们的生活和工作方式</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-comments product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">ChatGPT</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">100M+</span>
+                                    <span class="stat-label">用户</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">50+</span>
+                                    <span class="stat-label">国家</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">OpenAI开发的高级对话AI模型，能够进行自然对话、回答问题、创作内容等，广泛应用于教育、客服和内容创作等领域。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-image product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Midjourney</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">30M+</span>
+                                    <span class="stat-label">图像</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">10M+</span>
+                                    <span class="stat-label">用户</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">领先的AI图像生成工具，通过文本提示创建高质量艺术图像，在创意产业和数字艺术领域广受欢迎。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fab fa-google product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Gemini</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">多模态</span>
+                                    <span class="stat-label">支持</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">实时</span>
+                                    <span class="stat-label">搜索</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">Google开发的多模态AI模型，能够处理文本、图像、音频、视频和代码等多种输入形式，支持复杂推理任务。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-code product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">GitHub Copilot</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">90%</span>
+                                    <span class="stat-label">代码采纳率</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">50+</span>
+                                    <span class="stat-label">语言支持</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">AI编程助手，基于OpenAI Codex模型，为开发者提供代码补全、函数生成和编程建议，提高开发效率。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-video product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Runway ML</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">15+</span>
+                                    <span class="stat-label">AI工具</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">专业</span>
+                                    <span class="stat-label">编辑</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">创意AI工具平台，提供视频编辑、图像生成和媒体处理功能，让创意工作者轻松使用AI技术创作内容。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-language product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">DeepL</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">26+</span>
+                                    <span class="stat-label">语言</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">专业</span>
+                                    <span class="stat-label">质量</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">高质量神经网络翻译服务，提供精确的语言翻译，支持多种语言互译，广泛应用于商务和个人翻译需求。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-chart-line product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Salesforce Einstein</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">企业级</span>
+                                    <span class="stat-label">安全</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">150K+</span>
+                                    <span class="stat-label">客户</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">企业级AI平台，将AI技术集成到CRM系统中，提供预测分析、自动化和智能洞察等功能，助力企业决策。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-brain product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Amazon SageMaker</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">端到端</span>
+                                    <span class="stat-label">ML</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">AWS</span>
+                                    <span class="stat-label">生态</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">端到端的机器学习平台，让开发者和数据科学家能够轻松构建、训练和部署机器学习模型。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-heartbeat product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">IBM Watson Health</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">医疗级</span>
+                                    <span class="stat-label">精度</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">全球</span>
+                                    <span class="stat-label">部署</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">医疗健康领域的AI解决方案，协助医生进行诊断、治疗方案制定和医学研究，提高医疗服务质量和效率。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-eye product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Clarifai</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">视觉AI</span>
+                                    <span class="stat-label">识别</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">API</span>
+                                    <span class="stat-label">接口</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">计算机视觉AI平台，提供图像和视频识别、分类和标记功能，广泛应用于内容审核、商品识别等领域。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-robot product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">AutoGPT</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">自主</span>
+                                    <span class="stat-label">运行</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">1M+</span>
+                                    <span class="stat-label">下载</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">开源自主AI代理，能够独立思考、规划和执行复杂任务，代表了AGI发展的重要里程碑。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-magic product-icon"></i>
+                        <div class="product-header">
+                            <h3 class="product-title">Stable Diffusion</h3>
+                            <div class="product-stats">
+                                <div class="stat">
+                                    <span class="stat-value">开源</span>
+                                    <span class="stat-label">模型</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">千万+</span>
+                                    <span class="stat-label">用户</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <p class="product-desc">开源AI图像生成模型，允许用户在个人设备上创建高质量图像，推动了AI艺术创作的民主化。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开发工具集合 -->
+    <section id="dev-tools" class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>开发者工具集</h2>
+                <p>为创业者和开发者精心挑选的实用工具，助力您的创新项目</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="tool-name">代码助手</h3>
+                    <p class="tool-desc">智能编程助手，帮助开发者提高效率</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="tool-name">图像生成</h3>
+                    <p class="tool-desc">文本转图像的创意工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="tool-name">视频制作</h3>
+                    <p class="tool-desc">AI驱动的视频编辑工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="tool-name">数据分析</h3>
+                    <p class="tool-desc">智能数据处理和可视化工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="tool-name">文档生成</h3>
+                    <p class="tool-desc">自动文档编写和格式化工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="tool-name">安全检测</h3>
+                    <p class="tool-desc">代码安全漏洞扫描工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="tool-name">自动化测试</h3>
+                    <p class="tool-desc">智能测试用例生成工具</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="tool-name">代码搜索</h3>
+                    <p class="tool-desc">语义化代码检索工具</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>联系我们</h2>
+                <p>有任何问题或合作意向？请随时与我们联系</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>邮箱</h4>
+                            <p>contact@aivisionfactory.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>地址</h4>
+                            <p>北京市海淀区中关村大街1号</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>电话</h4>
+                            <p>+86 10 1234 5678</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="您的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="您的消息" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI创想工场</h3>
+                    <p>连接AI创业者，共创智能未来</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#products">AI产品</a></li>
+                        <li><a href="#insights">行业洞察</a></li>
+                        <li><a href="#tools-integration">AI工具</a></li>
+                        <li><a href="#dev-tools">开发工具</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">API文档</a></li>
+                        <li><a href="#">开发者指南</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                        <li><a href="#">研究报告</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 AI创想工场. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 图片轮播功能
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const progressBar = document.getElementById('progressBar');
+        let slideInterval;
+
+        function showSlide(n) {
+            // 隐藏所有幻灯片
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // 循环显示
+            slideIndex = (n + slides.length) % slides.length;
+
+            // 显示当前幻灯片
+            slides[slideIndex].classList.add('active');
+            indicators[slideIndex].classList.add('active');
+
+            // 重置并启动进度条
+            resetProgressBar();
+        }
+
+        function changeSlide(n) {
+            showSlide(slideIndex + n);
+        }
+
+        function currentSlide(n) {
+            showSlide(n - 1);
+        }
+
+        function resetProgressBar() {
+            // 重置进度条宽度
+            progressBar.style.width = '0%';
+            
+            // 使用setTimeout确保DOM更新完成后再开始动画
+            setTimeout(() => {
+                // 设置进度条动画 - 4秒内达到100%
+                progressBar.style.transition = 'width 4s linear';
+                progressBar.style.width = '100%';
+            }, 10);
+        }
+
+        // 自动播放
+        function startSlideShow() {
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000); // 每5秒切换一次（包括1秒过渡时间）
+        }
+
+        // 停止自动播放（鼠标悬停时）
+        function stopSlideShow() {
+            clearInterval(slideInterval);
+        }
+
+        // 为轮播容器添加鼠标事件
+        const carouselContainer = document.querySelector('.image-carousel');
+        if(carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopSlideShow);
+            carouselContainer.addEventListener('mouseleave', startSlideShow);
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            if(slides.length > 0 && indicators.length > 0) {
+                showSlide(0); // 显示第一张幻灯片
+                startSlideShow(); // 开始自动播放
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // 简单的滚动监听，更新导航激活状态
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

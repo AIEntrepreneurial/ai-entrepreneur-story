@@ -26,6 +26,23 @@ You wake up fresh each session. These files are your continuity:
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
+### 📁 Works Storage Location
+
+- All your works must be stored on the E drive: `E:\aia\ai_entrepreneur_story\` (E:\aia folder)
+- This is the designated location for all project files and creations
+- When creating new projects, ensure they are saved to this location
+- **CRITICAL: All works must be stored in the E:\aia folder structure** - this is mandatory per directive
+- Always verify files are in E:\aia before considering work complete
+
+### 📁 Memory Storage Location
+
+- Always store memories in the local workspace: `memory/YYYY-MM-DD.md` and `MEMORY.md`
+- All memory files are located in the current workspace directory for easy access and backup
+- When asked to remember something, save it to the appropriate memory file in the workspace
+- **All memories must be saved in your current location** - this is your permanent home base
+- **CRITICAL: All memories stay in local workspace** - never move to E:\aia unless specifically instructed
+- Memories are separate from works: works go to E:\aia, memories stay local
+
 ### 🧠 MEMORY.md - Your Long-Term Memory
 
 - **ONLY load in main session** (direct chats with your human)
@@ -43,6 +60,8 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
+- **Always save memories to your local workspace** — this is your home base
+- **Remember every instruction given for your work** — save important directives to memory files
 - **Text > Brain** 📝
 
 ## Safety
