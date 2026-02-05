@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "browser-agent-qzu": {
+      "version": "1.0.0",
+      "installedAt": 1770214650406
+    },
+    "superdesign": {
+      "version": "1.0.0",
+      "installedAt": 1770227689060
+    },
+    "google-imagen-3-portrait-photography": {
+      "version": "1.0.0",
+      "installedAt": 1770227694651
+    },
+    "gemini-image-gen": {
+      "version": "1.1.0",
+      "installedAt": 1770227699605
+    },
+    "web-design-guidelines": {
+      "version": "1.0.0",
+      "installedAt": 1770227704616
+    },
+    "frontend-design-ultimate": {
+      "version": "1.0.0",
+      "installedAt": 1770227710379
+    },
+    "ui-ux-pro-max": {
+      "version": "0.1.0",
+      "installedAt": 1770227719089
+    },
+    "image-cog": {
+      "version": "1.0.0",
+      "installedAt": 1770227724562
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1770286513994
+    }
+  }
+}

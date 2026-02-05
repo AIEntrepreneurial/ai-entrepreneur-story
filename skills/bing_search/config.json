@@ -1,0 +1,67 @@
+{
+  "name": "bing_search",
+  "version": "1.0.0",
+  "description": "Web search functionality using Microsoft Bing Search API",
+  "author": "OpenClaw",
+  "license": "MIT",
+  "functions": [
+    {
+      "name": "bing_web_search",
+      "description": "Perform a web search using Bing API",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query string"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of results to return (default 10)",
+            "default": 10
+          },
+          "market": {
+            "type": "string",
+            "description": "Market code for localization (default en-US)",
+            "default": "en-US"
+          },
+          "safe_search": {
+            "type": "string",
+            "description": "Safe search setting (Off, Moderate, Strict)",
+            "default": "Moderate"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "bing_news_search",
+      "description": "Get news articles using Bing News API",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "News topic to search for (empty for general news)"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of results to return",
+            "default": 10
+          },
+          "market": {
+            "type": "string",
+            "description": "Market code for localization",
+            "default": "en-US"
+          }
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    "requests"
+  ],
+  "env_vars": [
+    "BING_SEARCH_API_KEY"
+  ]
+}

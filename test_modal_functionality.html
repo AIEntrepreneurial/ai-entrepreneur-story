@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面 - 验证修复</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>测试页面 - 验证修复</h1>
+    <p>这个测试页面验证"阅读全文"链接的修复是否有效。</p>
+    
+    <h2>创业故事示例</h2>
+    <p>这里是一个简短的故事预览...</p>
+    <a href="#" class="btn read-more" data-modal="story1">阅读全文</a>
+    
+    <h2>产品展示示例</h2>
+    <p>这里是产品简介...</p>
+    <a href="#" class="btn read-more" data-modal="product1">了解更多</a>
+
+    <!-- 模态框 -->
+    <div id="story1Modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>从OpenClaw到独角兽</h3>
+            <p>讲述一个AI助手开发者如何通过OpenClaw平台，一步步将自己的创意转化为估值千万的独角兽公司的故事。这是一段充满挑战和机遇的旅程，从最初的想法萌芽到最终的成功上市，每一个决策都至关重要。</p>
+            <p>在创业初期，创始人面临着资金不足、技术难题和市场竞争等多重挑战。然而，通过深入研究OpenClaw平台的特性，他们成功开发了一款能够解决实际业务痛点的AI助手产品。这一产品不仅提高了企业的工作效率，还降低了人力成本。</p>
+            <p>随着产品的不断完善和市场的拓展，公司逐渐吸引了风险投资的关注。在获得A轮融资后，团队进一步扩大，产品功能也日趋完善。经过三年的发展，公司成功实现了盈利，并在第四年被一家大型科技公司收购，实现了创业梦想。</p>
+        </div>
+    </div>
+
+    <div id="product1Modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>OpenClaw AI助手平台</h3>
+            <p>OpenClaw AI助手平台是一款功能强大的AI助手开发平台，支持多渠道集成和丰富的插件系统。该平台专为开发者和企业设计，旨在降低AI助手开发的门槛，提高开发效率。</p>
+            <p>平台的主要特性包括：</p>
+            <ul>
+                <li><strong>多渠道消息集成</strong>：支持微信、钉钉、Slack等多种通讯渠道的消息集成，实现统一管理和响应。</li>
+                <li><strong>丰富的插件生态系统</strong>：提供数据库连接、API调用、文档处理等多种插件，满足不同业务需求。</li>
+                <li><strong>灵活的工作流配置</strong>：通过可视化界面配置复杂的工作流程，无需编写代码即可实现高级功能。</li>
+                <li><strong>企业级安全保障</strong>：采用端到端加密、访问控制和审计日志等安全措施，确保数据安全。</li>
+            </ul>
+            <p>该平台已在多家企业成功部署，显著提高了客户服务效率和内部协作效率。</p>
+        </div>
+    </div>
+
+    <script>
+        // 模态框功能
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const modalId = this.getAttribute('data-modal') + 'Modal';
+                const modal = document.getElementById(modalId);
+                
+                if (modal) {
+                    modal.style.display = 'block';
+                    
+                    // 添加ESC键关闭功能
+                    const closeHandler = (event) => {
+                        if (event.key === 'Escape') {
+                            modal.style.display = 'none';
+                            document.removeEventListener('keydown', closeHandler);
+                        }
+                    };
+                    document.addEventListener('keydown', closeHandler);
+                }
+            });
+        });
+
+        // 模态框关闭按钮
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                modal.style.display = 'none';
+            });
+        });
+
+        // 点击模态框外部关闭
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
